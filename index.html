@@ -1,1 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ChronoX 2050 – Stopwatch</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Animated background grid -->
+    <div class="bg-grid"></div>
+    <div class="bg-orbs">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+    </div>
 
+    <div class="container">
+      <!-- Header -->
+      <header class="header">
+        <div class="logo-mark">⬡</div>
+        <h1 class="brand">CHRONO<span>X</span></h1>
+        <p class="tagline">CHRONOS ENGINE · PRECISION TIMING SYSTEM</p>
+      </header>
+
+      <!-- Main Watch Card -->
+      <main class="watch-card">
+        <!-- Scan line effect -->
+        <div class="scan-line"></div>
+
+        <!-- Status Indicator -->
+        <div class="status-bar">
+          <span class="status-dot" id="statusDot"></span>
+          <span class="status-text" id="statusText">STANDBY</span>
+          <span class="lap-count" id="lapCount">LAP: 00</span>
+        </div>
+
+        <!-- Time Display -->
+        <div class="time-display">
+          <div class="time-main" id="timeDisplay">
+            <span id="hours">00</span>
+            <span class="sep">:</span>
+            <span id="minutes">00</span>
+            <span class="sep">:</span>
+            <span id="seconds">00</span>
+          </div>
+          <div class="time-ms" id="msDisplay">
+            <span>.</span><span id="milliseconds">000</span>
+          </div>
+        </div>
+
+        <!-- Progress Ring -->
+        <div class="progress-ring-wrapper">
+          <svg class="progress-ring" viewBox="0 0 200 8">
+            <rect x="0" y="0" width="200" height="8" rx="4" fill="rgba(255,255,255,0.05)" />
+            <rect
+              class="progress-bar"
+              id="progressBar"
+              x="0"
+              y="0"
+              width="0"
+              height="8"
+              rx="4"
+            />
+          </svg>
+        </div>
+
+        <!-- Controls -->
+        <div class="controls">
+          <button class="btn btn-secondary" id="resetBtn" title="Reset">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
+              <path d="M3 3v5h5" />
+            </svg>
+            <span>RESET</span>
+          </button>
+
+          <button class="btn btn-primary" id="startPauseBtn">
+            <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor">
+              <polygon points="5,3 19,12 5,21" />
+            </svg>
+            <svg class="icon-pause hidden" viewBox="0 0 24 24" fill="currentColor">
+              <rect x="6" y="4" width="4" height="16" rx="1" />
+              <rect x="14" y="4" width="4" height="16" rx="1" />
+            </svg>
+            <span id="startPauseLabel">START</span>
+          </button>
+
+          <button class="btn btn-secondary" id="lapBtn" title="Lap" disabled>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="9" />
+              <polyline points="12,6 12,12 16,14" />
+            </svg>
+            <span>LAP</span>
+          </button>
+        </div>
+      </main>
+
+      <!-- Lap Times Panel -->
+      <section class="laps-panel" id="lapsPanel">
+        <div class="laps-header">
+          <span class="laps-title">LAP RECORDS</span>
+          <button class="clear-btn" id="clearLapsBtn">CLEAR ALL</button>
+        </div>
+        <div class="laps-list" id="lapsList">
+          <div class="no-laps" id="noLaps">
+            <span>⟡</span>
+            <p>No laps recorded yet</p>
+          </div>
+        </div>
+      </section>
+
+      <footer class="footer">
+        DESIGNED & DEVELOPED BY ANVESHA SINGH
+      </footer>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
